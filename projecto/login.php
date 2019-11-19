@@ -35,7 +35,7 @@ while (($line = fgets($file,4096)) !== false ){
  }
 
 
-alex
+
 
 ?> <br>
 <?php
