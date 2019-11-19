@@ -30,12 +30,12 @@ while (($line = fgets($file,4096)) !== false ){
    if ($hora>7 && $hora<15) {
      echo "<br><br> Boas $nick " . date('H:i:s') . " Primeiro turno";
    }
-   else
-   echo "<br><br> Boas $nick " . date('H:i:s') . " Segundo turno" ;
+   else{
+   echo "<br><br> Boas $nick " . date('H:i:s') . " Segundo turno" ;  }
  }
 
 
-
+alex
 
 ?> <br>
 <?php
