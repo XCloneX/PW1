@@ -6,6 +6,9 @@
     $password = $_POST['passwd'] ;
     $verdade = FALSE ;
     $hora = date('H');
+    $radio = $_POST['checked'] ;
+
+    echo $radio ;
     // echo $password ;
 
 while (($line = fgets($file,4096)) !== false ){
@@ -17,8 +20,11 @@ while (($line = fgets($file,4096)) !== false ){
     //  echo $utilizador[2] ;
       if($utilizador[2] == $nick && $utilizador[3] == $password) {
         $verdade = true ;
-        fwrite($file, $i . "," . $_POST['name'] . "," . $_POST['nick'] . "," . $_POST['passwd'] . "\n");
+    //    if ($radio = 1) {
 
+    //    }
+      //  fwrite($file, $i . "," . $_POST['name'] . "," . $_POST['nick'] . "," . $_POST['passwd'] . "\n");
+//  }
       //  echo $nick ;
         break ;
    //echo $utilizadores[1] ;
@@ -27,16 +33,28 @@ while (($line = fgets($file,4096)) !== false ){
 
  if ($verdade = true) {
    //consegue dar login
-   if ($hora>7 && $hora<15) {
-     echo "<br><br> Boas $nick " . date('H:i:s') . " Primeiro turno";
+   if ($hora>5 && $hora<11) {
+     if($radio == "in") {
+       echo "<br><br> Bom Dia $nick " . date('H:i') ."<br> Bom Trabalho"   ;}
+     else {
+     echo /*"Não pode sair a esta hora" */ "<br><br> Bom Dia $nick " . date('H:i') . "<br> Bom Descanso"; }
    }
-   else{
-   echo "<br><br> Boas $nick " . date('H:i:s') . " Segundo turno" ;  }
- }
+   if ($hora>12 && $hora<19) {
+     if($radio == "in") {
+       echo "<br><br> Boa Tarde $nick " . date('H:i') . "<br> Bom Trabalho "  ;  }
 
-
-
-
+    if ($radio == "out"){
+      echo "<br><br> Boa Tarde $nick " . date('H:i') . "<br> Bom Descanso " ; }
+}
+else {
+  if($radio == "in") {
+    echo "<br><br> Boa Noite $nick " . date('H:i') . "<br> Bom Trabalho " . $radio  ;
+  }
+    if ($radio == "out") {
+    echo "<br><br> Boa Noite $nick " . date('H:i') . "<br> Bom Descanso "  ;
+  }
+}
+}
 ?> <br>
 <?php
 
