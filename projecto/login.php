@@ -7,8 +7,9 @@
     $nick = $_POST['nick'] ;
     $password = $_POST['passwd'] ;
     $verdade = FALSE ;
-    $hora = date('Y-m-d H:i:s');
+    $hora = date('H:i');
     $radio = $_POST['checked'] ;
+    $ponto = date('Y-m-d H:i:s')
     // echo $password ;
 
 while (($line = fgets($file,4096)) !== false ){
@@ -54,7 +55,7 @@ else {
     echo "<br><br> Boa Noite $nick " . date('H:i') . "<br> Bom Descanso "  ;
   }
 }
-  fwrite($file2, $_POST['nick'].",". $hora .",". $radio .",");
+  fwrite($file2, $_POST['nick'].",". $ponto .",". $radio .",");
   fclose($file2);
 }
 ?> <br>
