@@ -1,15 +1,17 @@
 <?php
     $filename = 'trabalhadores.txt';
-    $filentry = 'registar.txt';
+    $filename2 = 'registar.txt';
     $file = fopen($filename,'r');
-    $file2 = fopen($filentry,'a');
+    $file2 = fopen($filename2, 'a');
     $utilizadores=array();
     $nick = $_POST['nick'] ;
     $password = $_POST['passwd'] ;
-    $verdade = FALSE ;
-    $hora = date('H:i');
+    $verdade = false ;
+    $hora = date('H');
     $radio = $_POST['checked'] ;
-    $ponto = date('Y-m-d H:i:s')
+    $horadeponto = date('d-m H:i');
+
+  //  echo $radio ;
     // echo $password ;
 
 while (($line = fgets($file,4096)) !== false ){
@@ -17,20 +19,26 @@ while (($line = fgets($file,4096)) !== false ){
       $utilizadores[] = $line ;
       $utilizador = explode(',' , $line) ;
       $utilizadores[$utilizador[0]] = $utilizador[1];
+
   //    var_dump(  $utilizador[3])  . "\n";
     //  echo $utilizador[2] ;
-      if($utilizador[2] == $nick && $utilizador[3] == $password) {
+      if($utilizador[2] == $nick and $utilizador[3] == $password) {
         $verdade = true ;
+        echo "aguenta" ;
+
+      //  $line[]
     //    if ($radio = 1) {
 
     //    }
       //  fwrite($file, $i . "," . $_POST['name'] . "," . $_POST['nick'] . "," . $_POST['passwd'] . "\n");
 //  }
       //  echo $nick ;
-        break ;
+    //    break ;
    //echo $utilizadores[1] ;
  } }
+ if($verdade == false) {echo "BIG MISTAKE BUDDY"   ;}
 
+echo $verdade;
 
  if ($verdade == true) {
    //consegue dar login
@@ -52,11 +60,13 @@ else {
     echo "<br><br> Boa Noite $nick " . date('H:i') . "<br> Bom Trabalho " . $radio  ;
   }
     if ($radio == "out") {
-    echo "<br><br> Boa Noite $nick " . date('H:i') . "<br> Bom Descanso "  ;
+    echo "<br><br> Boa Noite $nick " . date('H:i') . "<br> Bom Descanso "    ;
   }
 }
-  fwrite($file2, $_POST['nick'].",". $ponto .",". $radio .",");
+  fwrite($file2, $_POST['nick'] .",". $horadeponto . "," . $radio . "," . "\n");
   fclose($file2);
+
+
 }
 ?> <br>
 <?php
