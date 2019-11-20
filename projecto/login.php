@@ -1,14 +1,14 @@
 <?php
     $filename = 'trabalhadores.txt';
+    $filentry = 'registar.txt';
     $file = fopen($filename,'r');
+    $file2 = fopen($filentry,'a');
     $utilizadores=array();
     $nick = $_POST['nick'] ;
     $password = $_POST['passwd'] ;
     $verdade = FALSE ;
-    $hora = date('H');
+    $hora = date('Y-m-d H:i:s');
     $radio = $_POST['checked'] ;
-
-    echo $radio ;
     // echo $password ;
 
 while (($line = fgets($file,4096)) !== false ){
@@ -31,7 +31,7 @@ while (($line = fgets($file,4096)) !== false ){
  } }
 
 
- if ($verdade = true) {
+ if ($verdade == true) {
    //consegue dar login
    if ($hora>5 && $hora<11) {
      if($radio == "in") {
@@ -39,7 +39,7 @@ while (($line = fgets($file,4096)) !== false ){
      else {
      echo /*"Não pode sair a esta hora" */ "<br><br> Bom Dia $nick " . date('H:i') . "<br> Bom Descanso"; }
    }
-   if ($hora>12 && $hora<19) {
+   if ($hora>11 && $hora<19) {
      if($radio == "in") {
        echo "<br><br> Boa Tarde $nick " . date('H:i') . "<br> Bom Trabalho "  ;  }
 
@@ -54,6 +54,8 @@ else {
     echo "<br><br> Boa Noite $nick " . date('H:i') . "<br> Bom Descanso "  ;
   }
 }
+  fwrite($file2, $_POST['nick'].",". $hora .",". $radio .",");
+  fclose($file2);
 }
 ?> <br>
 <?php

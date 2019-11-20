@@ -15,7 +15,7 @@ foreach ($utilizadores as $utilizador) {
       // code...
 }
     $file = fopen($filename, 'a');
-    fwrite($file,$i .",". $_POST['name'].",".$_POST['nick'] .",". $_POST['passwd'] ."\n");
+    fwrite($file,$i .",". $_POST['name'].",".$_POST['nick'] .",". $_POST['passwd']);
     fclose($file);
 
     header('Location: login.html');
