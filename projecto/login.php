@@ -47,8 +47,7 @@ while (($line = fgets($file,4096)) !== false ){
 
         // if($assiduidade[0] == $nick and $assiduidade[2] == $radio) {
           // $verdade = true ;
-          echo $assiduidade[0];
-}
+        
    //consegue dar login
    if ($hora>5 && $hora<11) {
      if($radio == "in") {
