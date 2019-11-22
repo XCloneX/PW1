@@ -10,6 +10,7 @@
     $hora = date('H');
     $radio = $_POST['checked'] ;
     $horadeponto = date('d-m H:i');
+    $assiduidades = array();
 
   //  echo $radio ;
     // echo $password ;
@@ -24,7 +25,6 @@ while (($line = fgets($file,4096)) !== false ){
     //  echo $utilizador[2] ;
       if($utilizador[2] == $nick and $utilizador[3] == $password) {
         $verdade = true ;
-        echo "aguenta" ;
 
       //  $line[]
     //    if ($radio = 1) {
@@ -38,9 +38,17 @@ while (($line = fgets($file,4096)) !== false ){
  } }
  if($verdade == false) {echo "BIG MISTAKE BUDDY"   ;}
 
-echo $verdade;
-
  if ($verdade == true) {
+   while (($line2 = fgets($file2,4096)) !== false ){
+       //  echo $line ;
+         $assiduidades[] = $line2 ;
+         $assiduidade = explode(',' , $line2) ;
+         $assiduidades[$assiduidade[0]] = $assiduidade[1];
+
+        // if($assiduidade[0] == $nick and $assiduidade[2] == $radio) {
+          // $verdade = true ;
+          echo $assiduidade[0];
+}
    //consegue dar login
    if ($hora>5 && $hora<11) {
      if($radio == "in") {
