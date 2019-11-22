@@ -1,6 +1,6 @@
 <?php
     $filename = 'trabalhadores.txt';
-    $filename2 = 'assiduidade.txt';
+    $filename2 = 'assiduidade.csv';
     $file = fopen($filename,'r');
     $file2 = fopen($filename2,'a');
     $utilizadores=array();
@@ -61,7 +61,7 @@ else {
       echo "erro";
       exit;
   }
-  
+
    if ($hora>5 && $hora<11) {
      if($radio == "in") {
        echo "<br><br> Bom Dia $nick " . date('H:i') ."<br> Bom Trabalho"   ;}
