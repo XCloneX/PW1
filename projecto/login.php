@@ -1,8 +1,8 @@
 <?php
     $filename = 'trabalhadores.txt';
-    $filename2 = 'registar.txt';
+    $filename2 = 'assiduidade.txt';
     $file = fopen($filename,'r');
-    $file2 = fopen($filename2, 'a');
+    $file2 = fopen($filename2,'a');
     $utilizadores=array();
     $nick = $_POST['nick'] ;
     $password = $_POST['passwd'] ;
@@ -33,22 +33,35 @@ while (($line = fgets($file,4096)) !== false ){
       //  fwrite($file, $i . "," . $_POST['name'] . "," . $_POST['nick'] . "," . $_POST['passwd'] . "\n");
 //  }
       //  echo $nick ;
-    //    break ;
+        break;
    //echo $utilizadores[1] ;
- } }
- if($verdade == false) {echo "BIG MISTAKE BUDDY"   ;}
+ }
+}
+ if($verdade == false) {
+   echo "BIG MISTAKE BUDDY"   ;
+ }
 
- if ($verdade == true) {
-   while (($line2 = fgets($file2,4096)) !== false ){
-       //  echo $line ;
-         $assiduidades[] = $line2 ;
-         $assiduidade = explode(',' , $line2) ;
-         $assiduidades[$assiduidade[0]] = $assiduidade[1];
 
-        // if($assiduidade[0] == $nick and $assiduidade[2] == $radio) {
-          // $verdade = true ;
-        
-   //consegue dar login
+
+else {
+
+  $f = fopen($filename2,'r');
+  while (($line = fgets($f,4096)) !== false ){
+      //  echo $line ;
+        $operacao = '';
+        $tok = explode(',' , $line) ;
+        //echo "<pre>".print_r($tok,true) . "</pre>";
+
+        if($tok[0] == $nick) {
+         $operacao = $tok[2] ;
+     }
+  }
+
+    if($operacao == $radio){
+      echo "erro";
+      exit;
+  }
+  
    if ($hora>5 && $hora<11) {
      if($radio == "in") {
        echo "<br><br> Bom Dia $nick " . date('H:i') ."<br> Bom Trabalho"   ;}
@@ -70,16 +83,18 @@ else {
     echo "<br><br> Boa Noite $nick " . date('H:i') . "<br> Bom Descanso "    ;
   }
 }
+}
+
+
+
   fwrite($file2, $_POST['nick'] .",". $horadeponto . "," . $radio . "," . "\n");
   fclose($file2);
 
 
-}
-?> <br>
-<?php
+  fclose($file);
 
 
-    fclose($file);
+
 
 
   //  var_dump($user)  ;
