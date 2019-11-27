@@ -1,2 +1,25 @@
 formatar codigo usando o modelo psr4
 melhorar mensagens de erro
+
+Pontos da apresentaçao:
+
+Um powerpoint com:
+  1ºdiapositivo
+      _Nomes
+      _indentificaçao do Trabalho (Relogio de ponto e _indentificaçao do grupo)
+      _nome do curso
+      _Universidade / Logo (manual de normas graficas UAC)
+      _
+  2ºdiapositivo/  Requisitos (resumidos e numerados pela ordem que foram abordados)
+    O que usamos :
+    Xampp
+    html
+    php
+    atom
+    google
+    stakoverflow
+
+  3ºapresentaçao dos ficheiros de codigo
+
+    _breve explicaçao de partes do codigo(login,registos, etc..)
+    
