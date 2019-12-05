@@ -19,7 +19,7 @@
 while (($line = fgets($file,4096)) !== false ){
 
       $utilizador = explode(',' , $line) ;
-      $utilizadores[$utilizador[0]] = $utilizador[1];
+    //  $utilizadores[$utilizador[0]] = $utilizador[1];
 
     if($utilizador[2] == $nick and $utilizador[3] == $password) {
         $verdade = true ;
@@ -35,8 +35,8 @@ if($verdade == false) {
 // Se econtrar o utilizador, abre o ficheiro assiduidade e verifica a sua entrada/saida
 else {
     $f = fopen($filename2,'r');
+      $operacao = '';
 while (($line = fgets($f,4096)) !== false ){
-        $operacao = '';
         $tok = explode(',' , $line) ;
 // Guarda numa variavel se o utilizador registado entrou ou saiu, consoanate o formulario
   if($tok[0] == $nick) {

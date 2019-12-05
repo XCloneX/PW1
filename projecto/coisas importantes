@@ -1,4 +1,4 @@
-formatar codigo usando o modelo psr4
+formatar codigo usando o modelo psr2
 melhorar mensagens de erro
 
 Pontos da apresentaçao:
@@ -18,8 +18,8 @@ Um powerpoint com:
     atom
     google
     stakoverflow
+    github
 
   3ºapresentaçao dos ficheiros de codigo
 
     _breve explicaçao de partes do codigo(login,registos, etc..)
-    
